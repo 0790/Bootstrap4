@@ -31,19 +31,49 @@
             <li class="nav-item"><a class="nav-link" href="#"><span class="fa fa-list fa-lg"></span>  Menu</a></li>
             <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span>  Contact</a></li>
         </ul>
+        <span class="navbar-text">
+            <a data-toggle="modal" data-target="#loginModal" ><span class="fa fa-sign-in"></span>Login</a>
+        </span>
     </div>
     </div>
     
 </nav>
-<style>
-    .button1{
-        border-radius:4px;
-         color:black;
-         width: 110%;
-
-    }
-    
-</style>
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg" role="content">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-sm-4">
+                                    <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                                    <input type="email" class="form-control form-control-sm mr-1" id="exampleInputEmail3" placeholder="Enter email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                <input type="password" class="form-control form-control-sm mr-1" id="exampleInputPassword3" placeholder="Password">
+                            </div>
+                            <div class="col-sm-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox">
+                                    <label class="form-check-label"> Remember me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     <header class = "jumbotron" >
         <div class = "container">
             <div class ="row row-header">
@@ -54,12 +84,12 @@
                   <div class="col-12 col-sm align-self-center">
                     <img src="img/logo.png" class="img-fluid">
                     </div>
-                    <div class="col-12 col-sm align-self-center"><a  href="#reserve" > <button type= "button" class="btn btn-warning button1" role="button">
-                        Reserve Table</button></a></div>
+                    <div class="col-12 col-sm align-self-center"><a  href="#reserve" class="btn btn-block nav-link btn-warning " data-toggle="tooltip" data-html="true" title= "Or Call us at +852 12345678" data-placement="bottom" role="button" >Reserve Table</a></div>
                 </div>
             </div>
         </div>
     </header>
+
 
     <div class="container">
         <div class = "row row-content align-items-center">
@@ -114,7 +144,7 @@
         <div class="row row-content">
             <div class="offset-sm-2 col-sm-8">
                  <div class="card" id="reserve">
-                     <h3 class= "bg-yellow text-white card-header"  >Reserve a Table</h3>
+                     <h3 class= "card-header bg-warning text-white"  >Reserve a Table</h3>
                      <div class="card-body">
                         <form>
                             <div class="form-group row">
@@ -133,7 +163,7 @@
                             <div class="form-group row">
                                 <label for="date-time" class="col-sm-3" >Date and Time </label>
                                 <div class="col-sm-4"><label for="date"><input type="text" name="date" placeholder="Date"></label></div>
-                                <div class="col-12 col-sm-3"><label for="time"><input type="text" name="time" placeholder="Time"></label></div>
+                                <div class="col-12 col-sm-3"><label for="time"><i bg-warning text-whitenput type="text" name="time" placeholder="Time"></label></div>
                             </div>
                             <div class="row">
                                 <div class="offset-sm-3 col-12" role="group">
@@ -192,6 +222,11 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function()){
+            $('[data-toggle="tooltip"]').tooltip() ;
+        }
+    </script>
 </body>
 
 </html>
