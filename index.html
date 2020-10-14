@@ -32,18 +32,18 @@
             <li class="nav-item"><a class="nav-link" href="./contactus.html"><span class="fa fa-address-card fa-lg"></span>  Contact</a></li>
         </ul>
         <span class="navbar-text">
-            <a data-toggle="modal" data-target="#loginModal" ><span class="fa fa-sign-in"></span>Login</a>
+            <a class ="btn" id="Button"><span class="fa fa-sign-in open"></span>Login</a>
         </span>
     </div>
     </div>
     
 </nav>
-         <div id="loginModal" class="modal fade" role="dialog">
+        <div id="loginModal" class="modal" role="dialog">
         <div class="modal-dialog modal-lg" role="content">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" id="loginclose">
                     <h4 class="modal-title">Login</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button" class="close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -64,8 +64,8 @@
                                 <!--/div-->
                             </div>
                         </div>
-                        <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                        <div class="form-row" id="logincancel">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto " >Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
                         </div>
                     </form>
@@ -77,9 +77,9 @@
      <div id="reserve" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg modal-responsive" role="content">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" id="reserveclose">
                     <h4 class="modal-title">Reserve a Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <button type="button"  class="close">&times;</button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -110,14 +110,15 @@
                           <div class="form-row"><br></div>
                         <div class="form-row">
                              <label for="date-time" class="col-sm-2" >Date and Time </label>
-                                <div class="col-sm-3"><label for="date"><input type="text" name="date" placeholder="Date"></label></div>
-                                <div class="col-12 col-sm-3"><label for="time"><input type="text" name="time" placeholder="Time"></label></div>                        
+                                <div class="col-sm-3"><label for="date"><input type="text" name="date" class="form-control form-control-sm mr-1" placeholder="Date"></label></div>
+                                <div class="col-12 col-sm-3"><label for="time"><input type="text" name="time" class="form-control form-control-sm mr-1" placeholder="Time"></label></div>                        
                         </div>
                         <div class="form-row"><br></div>
-                        <div class="form-row">
-                            <div class="offset-sm-2" role="group">
-                                    <button type="submit" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <div class="form-row"  >
+                            <div class="offset-sm-2" role="group" id="reservecancel">
+                                    <button type="submit" class="btn btn-secondary">Cancel</button>
                                 </div>
+                        
                             <div class="col-6" role="group">
                                     <button type="submit" class="btn btn-primary">Reserve</button>
                                 </div>
@@ -141,7 +142,7 @@
                     <img src="img/logo.png" class="img-fluid">
                     </div>
                     <div class="col-12 col-sm align-self-center">
-                        <a  href="#reserve" class="btn btn-block nav-link btn-warning text-white" data-toggle="modal" role="button" >Reserve Table</a>
+                        <a  href="#reserve" class="btn btn-block nav-link btn-warning text-white" role="button" id="reserveButton" >Reserve Table</a>
                     </div>
                 </div>
             </div>
@@ -347,6 +348,51 @@
             });
             
         });
+    
+        $(document).ready(function(){
+
+            $('#Button').click(function(){
+                $('#loginModal').modal('show');
+
+            
+            });
+
+            $('#reserveButton').click(function(){
+                $('#reserve').modal('show');
+
+            
+            });
+            $('#loginclose').click(function(){
+                if($('#loginclose').children('button').hasClass('close')){
+                    $('#loginModal').modal('hide') ;
+                    }
+
+            });
+            $('#logincancel').click(function(){
+                if($('#logincancel').children('button')){
+                    $('#loginModal').modal('hide') ;
+                    }
+
+            });
+
+
+            $('#reserveclose').click(function(){
+                if($('#reserveclose').children('button').hasClass('close')){
+                    $('#reserve').modal('hide') ;
+                    }
+
+            });
+            $('#reservecancel').click(function(){
+                if($('#reservecancel').children('button')){
+                    $('#reserve').modal('hide') ;
+                    }
+
+            });
+
+            
+            }); 
+            
+        
     </script>
 </body>
 
